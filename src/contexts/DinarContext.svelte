@@ -6,7 +6,7 @@
 
 <script lang="ts">
     import { setContext } from 'svelte';
-    import { DinarStore } from '../stores/DinarStore.svelte';
+    import DinarStore from '../stores/DinarStore';
 
     const DinarContext: DinarContextStore = setContext('DinarStore', DinarStore);
 

@@ -6,7 +6,7 @@
 
 <script lang="ts">
     import { setContext } from 'svelte';
-    import { TimeStore } from '../stores/TimeStore.svelte';
+    import TimeStore from '../stores/TimeStore';
 
     const TimeContext: TimeContextStore = setContext('TimeStore', TimeStore);
 

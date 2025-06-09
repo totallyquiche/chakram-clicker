@@ -1,13 +1,12 @@
 <script lang="ts">
     import { getContext } from 'svelte';
     import type { DinarContextStore } from '../contexts/DinarContext.svelte';
+    import ChakramMultiplierStore from '../stores/ChakramMultiplierStore';
 
     const dinars: DinarContextStore = getContext('DinarStore');
-
-    $dinars = 1000;
 </script>
 
-<button class="h-24 w-24">
+<button class="h-24 w-24" onclick={() => ($dinars += Math.ceil(1 * $ChakramMultiplierStore))}>
     <img
         src="/chakram.png"
         width="560"
