@@ -13,4 +13,6 @@
     });
 </script>
 
-<span>{currencyFormatter.format($dinars).replace('USD', '𐆖')}</span>
+<span class="text-shadow-lg text-shadow-slate-900"
+    >{currencyFormatter.format($dinars).replace('USD', '𐆖')}</span
+>

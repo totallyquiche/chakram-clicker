@@ -5,7 +5,11 @@
     src: url('/Xena.ttf');
 }
 
+* {
+    @apply select-none;
+}
+
 body {
-    color: #fff;
-    font-family: Xena;
+    @apply text-white;
+    @apply font-[Xena];
 }
