@@ -10,8 +10,6 @@
     let pointsGainedInstances: { points: number; id: number }[] = [];
     let nextId = 0;
 
-    $: console.log($growthRate);
-
     const handleClick = () => {
         const points = Math.ceil(1 * $growthRate);
         $dinars += points;
