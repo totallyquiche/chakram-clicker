@@ -1,13 +1,17 @@
 <script lang="ts">
+    import '../app.css';
+
     import TimeContext from '../contexts/TimeContext.svelte';
     import DinarContext from '../contexts/DinarContext.svelte';
-    import '../app.css';
+    import GrowthRateContext from '../contexts/GrowthRateContext.svelte';
 
     let { children } = $props();
 </script>
 
 <TimeContext>
-    <DinarContext>
-        {@render children()}
-    </DinarContext>
+    <GrowthRateContext>
+        <DinarContext>
+            {@render children()}
+        </DinarContext>
+    </GrowthRateContext>
 </TimeContext>

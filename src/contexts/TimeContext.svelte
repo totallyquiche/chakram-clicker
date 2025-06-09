@@ -10,6 +10,10 @@
 
     const TimeContext: TimeContextStore = setContext('TimeStore', TimeStore);
 
+    setInterval(() => {
+        $TimeContext++;
+    }, 1000);
+
     export { TimeContext };
 
     const { children } = $props();
