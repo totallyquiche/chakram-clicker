@@ -23,8 +23,11 @@
     };
 </script>
 
-<div>
-    <button class="h-24 w-24" on:click={handleClick}>
+<div class="relative">
+    <button
+        class="h-32 w-32 transition-all duration-100 hover:scale-110 active:scale-95"
+        on:click={handleClick}
+    >
         <img
             src="/chakram.png"
             width="560"

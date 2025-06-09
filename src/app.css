@@ -1,5 +1,11 @@
 @import 'tailwindcss';
 
+@font-face {
+    font-family: Xena;
+    src: url('/Xena.ttf');
+}
+
 body {
     color: #fff;
+    font-family: Xena;
 }
