@@ -9,10 +9,9 @@
     import DinarStore from '../stores/DinarStore';
 
     const DinarContext: DinarContextStore = setContext('DinarStore', DinarStore);
+    const { children } = $props();
 
     export { DinarContext };
-
-    const { children } = $props();
 </script>
 
 {@render children()}

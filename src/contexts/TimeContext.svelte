@@ -9,14 +9,13 @@
     import TimeStore from '../stores/TimeStore';
 
     const TimeContext: TimeContextStore = setContext('TimeStore', TimeStore);
+    const { children } = $props();
 
     setInterval(() => {
         $TimeContext++;
     }, 1000);
 
     export { TimeContext };
-
-    const { children } = $props();
 </script>
 
 {@render children()}

@@ -12,10 +12,9 @@
         'GrowthRateStore',
         GrowthRateStore
     );
+    const { children } = $props();
 
     export { GrowthRateContext };
-
-    const { children } = $props();
 </script>
 
 {@render children()}
