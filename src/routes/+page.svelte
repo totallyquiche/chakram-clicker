@@ -5,14 +5,15 @@
     import Salmoneus from '../components/Salmoneus.svelte';
     import Scroll from '../components/Scroll.svelte';
     import type { DinarContextStore } from '../contexts/DinarContext.svelte';
+    import type { LevelContextStore } from '../contexts/LevelContext.svelte';
 
     const dinars: DinarContextStore = getContext('DinarStore');
-
-    let maxDinars = $dinars;
+    const level: LevelContextStore = getContext('LevelStore');
 
     dinars.subscribe((value) => {
-        if (value > maxDinars) {
-            maxDinars = value;
+        const newLevel = Math.floor(Math.log2(value / 10) + 1);
+        if (newLevel > 0 && newLevel !== $level) {
+            $level = newLevel;
         }
     });
 </script>
@@ -22,7 +23,7 @@
     <div class="absolute top-0 -left-1/4 flex h-full w-full items-center justify-center">
         <Chakram />
     </div>
-    {#if maxDinars >= 20}
+    {#if $level >= 2}
         <div class="absolute right-40 bottom-3">
             <Scroll />
         </div>

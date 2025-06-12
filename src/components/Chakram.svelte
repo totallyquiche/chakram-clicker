@@ -2,10 +2,12 @@
     import { getContext } from 'svelte';
     import type { DinarContextStore } from '../contexts/DinarContext.svelte';
     import type { GrowthRateContextStore } from '../contexts/GrowthRateContext.svelte';
+    import type { LevelContextStore } from '../contexts/LevelContext.svelte';
     import Dinar from './Dinar.svelte';
 
     const dinars: DinarContextStore = getContext('DinarStore');
     const growthRate: GrowthRateContextStore = getContext('GrowthRateStore');
+    const level: LevelContextStore = getContext('LevelStore');
 
     let coinCount = 0;
 
@@ -57,7 +59,8 @@
     const handleClick = () => {
         playAudio();
 
-        const points = Math.ceil(1 * $growthRate);
+        const points = Math.floor($growthRate * $level);
+
         $dinars += points;
 
         for (let i = 0; i < Math.min(points, 50); i++) {

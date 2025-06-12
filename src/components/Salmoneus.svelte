@@ -1,7 +1,7 @@
 <script lang="ts">
     let audio: HTMLAudioElement;
 
-    setTimeout(() => audio.play(), 250);
+    setTimeout(() => audio && audio.play(), 250);
 </script>
 
 <img
