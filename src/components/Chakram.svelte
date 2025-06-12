@@ -60,7 +60,7 @@
         const points = Math.ceil(1 * $growthRate);
         $dinars += points;
 
-        for (let i = 0; i < Math.min(points, 100); i++) {
+        for (let i = 0; i < Math.min(points, 50); i++) {
             addCoin();
         }
     };
