@@ -1,7 +1,6 @@
 <script lang="ts">
     import Score from '../components/Score.svelte';
     import Chakram from '../components/Chakram.svelte';
-    import Salmoneus from '../components/Salmoneus.svelte';
 </script>
 
 <div class="m-12">
