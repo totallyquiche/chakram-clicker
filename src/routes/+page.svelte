@@ -22,10 +22,10 @@
     <div class="absolute top-0 -left-1/4 flex h-full w-full items-center justify-center">
         <Chakram />
     </div>
-    <div class="absolute right-1/8 bottom-5">
-        <Scroll />
-    </div>
     {#if maxDinars > 20}
+        <div class="absolute right-50 bottom-5">
+            <Scroll />
+        </div>
         <div class="absolute -right-5 -bottom-5 max-h-60 max-w-60 scale-x-[-1] rotate-340">
             <Salmoneus />
         </div>
