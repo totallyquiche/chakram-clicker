@@ -86,6 +86,7 @@
             width="560"
             height="553"
             alt="Xena's fabled weapon, the Chakram, a circular metal throwing blade painted with a simple pattern."
+            draggable="false"
         />
     </button>
 </div>

@@ -6,40 +6,43 @@
     }, 1000);
 </script>
 
-<div class="slide-in relative flex h-full w-full items-center">
+<div class="flex w-[625px] justify-end {open ? '' : 'hidden'}">
     <img
         alt="The left handle to a scroll"
         src="/scroll-left.png"
         class="h-full max-h-46 w-auto object-contain"
+        draggable="false"
     />
     {#if open}
-        <img
-            alt="Scroll paper"
-            src="/scroll-paper.png"
-            class=" h-full max-h-46 w-auto object-contain"
-        />
+        <div class="slide-in">
+            <img
+                alt="Scroll paper"
+                src="/scroll-paper.png"
+                class="h-full max-h-46 object-cover"
+                draggable="false"
+            />
+        </div>
     {/if}
     <img
         alt="The right handle to a scroll"
         src="/scroll-right.png"
         class="h-full max-h-46 w-auto object-contain"
+        draggable="false"
     />
 </div>
 
 <style>
     @keyframes slideIn {
         from {
-            transform: translate(0%, 100%);
-            opacity: 0;
+            width: 0;
         }
 
         to {
-            transform: translate(0, 0);
-            opacity: 1;
+            width: 580px;
         }
     }
 
     .slide-in {
-        animation: slideIn 1s ease-out forwards;
+        animation: slideIn 1s ease-in-out;
     }
 </style>

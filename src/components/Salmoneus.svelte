@@ -1,10 +1,19 @@
+<script lang="ts">
+    let audio: HTMLAudioElement;
+
+    setTimeout(() => audio.play(), 250);
+</script>
+
 <img
     class="slide-in"
     alt="Salmoneus grinning deviously"
     src="/salmoneus.png"
     width="520"
     height="411"
+    draggable="false"
 />
+
+<audio src="/salmoneus-so-smooth.mp3" bind:this={audio}></audio>
 
 <style>
     @keyframes slideIn {
