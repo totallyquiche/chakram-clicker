@@ -4,7 +4,7 @@
 </script>
 
 <div class="m-12">
-    <div class="text-5xl leading-normal"><Score /></div>
+    <div class="absolute top-25 right-50 text-5xl leading-normal"><Score /></div>
     <div class="absolute top-0 -left-1/4 flex h-full w-full items-center justify-center">
         <Chakram />
     </div>
