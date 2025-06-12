@@ -45,7 +45,18 @@
         }, 2000);
     };
 
+    let audio: HTMLAudioElement;
+
+    const playAudio = () => {
+        if (audio) {
+            audio.currentTime = 0;
+            audio.play();
+        }
+    };
+
     const handleClick = () => {
+        playAudio();
+
         const points = Math.ceil(1 * $growthRate);
         $dinars += points;
 
@@ -56,6 +67,8 @@
 </script>
 
 <div class="relative h-72 w-72">
+    <audio src="/chakram-hit.mp3" preload="auto" bind:this={audio}></audio>
+
     {#each coins as coin (coin.id)}
         <div
             class="animate-coin-fly absolute top-1/2 left-1/2 max-h-1/5 max-w-1/5"
