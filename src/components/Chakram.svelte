@@ -4,12 +4,22 @@
     import type { GrowthRateContextStore } from '../contexts/GrowthRateContext.svelte';
     import type { LevelContextStore } from '../contexts/LevelContext.svelte';
     import Dinar from './Dinar.svelte';
-
+    import type { PendingClickCountContextStore } from '../contexts/PendingClickCountContext.svelte';
     const dinars: DinarContextStore = getContext('DinarStore');
     const growthRate: GrowthRateContextStore = getContext('GrowthRateStore');
     const level: LevelContextStore = getContext('LevelStore');
+    const pendingClickCount: PendingClickCountContextStore = getContext('PendingClickCountStore');
 
     let coinCount = 0;
+
+    $effect(() => {
+        if ($pendingClickCount > 0) {
+            setTimeout(() => {
+                handleClick();
+                $pendingClickCount--;
+            }, 100);
+        }
+    });
 
     interface CoinData {
         id: number;

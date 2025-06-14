@@ -5,6 +5,7 @@
     import DinarContext from '../contexts/DinarContext.svelte';
     import GrowthRateContext from '../contexts/GrowthRateContext.svelte';
     import LevelContext from '../contexts/LevelContext.svelte';
+    import PendingClickCountContext from '../contexts/PendingClickCountContext.svelte';
 
     let { children } = $props();
 </script>
@@ -13,7 +14,9 @@
     <GrowthRateContext>
         <LevelContext>
             <DinarContext>
-                {@render children()}
+                <PendingClickCountContext>
+                    {@render children()}
+                </PendingClickCountContext>
             </DinarContext>
         </LevelContext>
     </GrowthRateContext>

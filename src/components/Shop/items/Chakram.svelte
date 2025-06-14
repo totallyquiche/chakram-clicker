@@ -1,5 +1,23 @@
 <script lang="ts">
+    import { getContext, onMount } from 'svelte';
+    import type { PendingClickCountContextStore } from '../../../contexts/PendingClickCountContext.svelte';
+
     let level = $state(0);
+
+    const pendingClickCount: PendingClickCountContextStore = getContext('PendingClickCountStore');
+
+    const tick = () => {
+        setTimeout(() => {
+            if (level > 0) {
+                $pendingClickCount++;
+            }
+            tick();
+        }, 10000 / level);
+    };
+
+    onMount(() => {
+        tick();
+    });
 </script>
 
 <button
