@@ -51,6 +51,7 @@
 
     const playAudio = () => {
         if (audio) {
+            audio.volume = 0.5;
             audio.currentTime = 0;
             audio.play();
         }
