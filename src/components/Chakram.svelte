@@ -69,7 +69,7 @@
     };
 </script>
 
-<div class="relative h-72 w-72">
+<div class="relative h-72 w-72 bg-[url('/xena-logo.png')] bg-size-[50%] bg-center bg-no-repeat">
     <audio src="/chakram-hit.mp3" preload="auto" bind:this={audio}></audio>
 
     {#each coins as coin (coin.id)}
