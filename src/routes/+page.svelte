@@ -4,7 +4,7 @@
     import Chakram from '../components/Chakram.svelte';
     import type { DinarContextStore } from '../contexts/DinarContext.svelte';
     import type { LevelContextStore } from '../contexts/LevelContext.svelte';
-    import Shop from '../components/Shop/Shop.svelte';
+    import Shop from '../components/shop/Shop.svelte';
     const dinars: DinarContextStore = getContext('DinarStore');
     const level: LevelContextStore = getContext('LevelStore');
 
