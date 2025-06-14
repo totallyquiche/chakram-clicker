@@ -10,7 +10,7 @@
     <img
         alt="The left handle to a scroll"
         src="/scroll-left.png"
-        class="h-full max-h-46 w-auto object-contain"
+        class="h-full max-h-50 w-auto object-contain"
         draggable="false"
     />
     {#if open}
@@ -18,7 +18,7 @@
             <img
                 alt="Scroll paper"
                 src="/scroll-paper.png"
-                class="h-full max-h-46 object-cover"
+                class="h-full max-h-50 object-cover"
                 draggable="false"
             />
         </div>
@@ -26,7 +26,7 @@
     <img
         alt="The right handle to a scroll"
         src="/scroll-right.png"
-        class="h-full max-h-46 w-auto object-contain"
+        class="h-full max-h-50 w-auto object-contain"
         draggable="false"
     />
 </div>

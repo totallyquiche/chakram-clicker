@@ -2,11 +2,9 @@
     import { getContext } from 'svelte';
     import Score from '../components/Score.svelte';
     import Chakram from '../components/Chakram.svelte';
-    import Salmoneus from '../components/Salmoneus.svelte';
-    import Scroll from '../components/Scroll.svelte';
     import type { DinarContextStore } from '../contexts/DinarContext.svelte';
     import type { LevelContextStore } from '../contexts/LevelContext.svelte';
-
+    import Shop from '../components/Shop/Shop.svelte';
     const dinars: DinarContextStore = getContext('DinarStore');
     const level: LevelContextStore = getContext('LevelStore');
 
@@ -24,11 +22,6 @@
         <Chakram />
     </div>
     {#if $level >= 2}
-        <div class="absolute right-40 bottom-3">
-            <Scroll />
-        </div>
-        <div class="absolute -right-20 -bottom-5 max-h-60 max-w-60 scale-x-[-1] rotate-345">
-            <Salmoneus />
-        </div>
+        <Shop />
     {/if}
 </div>

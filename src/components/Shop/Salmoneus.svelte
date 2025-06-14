@@ -5,7 +5,7 @@
 </script>
 
 <img
-    class="slide-in"
+    class="slide-in max-h-46 w-auto scale-x-[-1] rotate-350"
     alt="Salmoneus grinning deviously"
     src="/salmoneus.png"
     width="520"
