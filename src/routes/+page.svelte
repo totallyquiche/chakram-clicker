@@ -5,12 +5,13 @@
     import type { DinarContextStore } from '../contexts/DinarContext.svelte';
     import type { LevelContextStore } from '../contexts/LevelContext.svelte';
     import Shop from '../components/shop/Shop.svelte';
+
     const dinars: DinarContextStore = getContext('DinarStore');
     const level: LevelContextStore = getContext('LevelStore');
 
     dinars.subscribe((value) => {
         const newLevel = Math.floor(Math.log2(value / 10) + 1);
-        if (newLevel > 0 && newLevel !== $level) {
+        if (newLevel > $level && newLevel !== $level) {
             $level = newLevel;
         }
     });
