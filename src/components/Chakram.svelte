@@ -4,6 +4,7 @@
     import type { GrowthRateContextStore } from '../contexts/GrowthRateContext.svelte';
     import type { LevelContextStore } from '../contexts/LevelContext.svelte';
     import Dinar from './Dinar.svelte';
+
     const dinars: DinarContextStore = getContext('DinarStore');
     const growthRate: GrowthRateContextStore = getContext('GrowthRateStore');
     const level: LevelContextStore = getContext('LevelStore');
@@ -21,19 +22,16 @@
 
     const coins: CoinData[] = $state([]);
 
-    const createCoin = (): CoinData => {
-        return {
-            id: coinCount++,
-            variant: Math.floor(Math.random() * 5) + 1,
-            angle: Math.random() * 360,
-            distance: 300 + Math.random() * 100,
-            xJitter:
-                Math.random() * Math.min(coins.length * 3, 30) * (Math.random() > 0.5 ? 1 : -1),
-            yJitter: Math.random() * Math.min(coins.length * 3, 30) * (Math.random() > 0.5 ? 1 : -1)
-        };
-    };
+    const createCoin = (): CoinData => ({
+        id: coinCount++,
+        variant: Math.floor(Math.random() * 5) + 1,
+        angle: Math.random() * 360,
+        distance: 300 + Math.random() * 100,
+        xJitter: Math.random() * Math.min(coins.length * 3, 30) * (Math.random() > 0.5 ? 1 : -1),
+        yJitter: Math.random() * Math.min(coins.length * 3, 30) * (Math.random() > 0.5 ? 1 : -1)
+    });
 
-    const addCoin = () => {
+    const addCoin = (): void => {
         const newCoin = createCoin();
 
         coins.push(newCoin);
@@ -48,7 +46,7 @@
 
     let audio: HTMLAudioElement;
 
-    const playAudio = () => {
+    const playAudio = (): void => {
         if (audio) {
             audio.volume = 0.5;
             audio.currentTime = 0;
@@ -56,7 +54,7 @@
         }
     };
 
-    const handleClick = () => {
+    export const handleClick = (): void => {
         playAudio();
 
         const points = Math.floor(($growthRate * $level) / 2) + 1;
