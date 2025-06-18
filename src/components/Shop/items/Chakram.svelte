@@ -2,9 +2,10 @@
     import { getContext, onMount } from 'svelte';
     import type { DinarContextStore } from '../../../contexts/DinarContext.svelte';
     import type { GrowthRateContextStore } from '../../../contexts/GrowthRateContext.svelte';
-
+    import type { ChakramContext } from '../../../contexts/ChakramContext.svelte';
     const dinars: DinarContextStore = getContext('DinarStore');
     const growthRate: GrowthRateContextStore = getContext('GrowthRateStore');
+    const chakramContext: ChakramContext = getContext('ChakramContext');
 
     const maxLevel = 10;
 
@@ -13,6 +14,7 @@
     let levelUpCostRounded = $derived(Math.round(levelUpCost / 100) * 100);
     let disabled = $state(true);
     let audio: HTMLAudioElement;
+    let tickTimeout: ReturnType<typeof setTimeout> | null = null;
 
     $effect(() => {
         disabled = levelUpCostRounded > $dinars || level >= maxLevel;
@@ -30,19 +32,30 @@
         level++;
         levelUpCost *= 1.15;
         $growthRate *= 1.015;
+
+        if (level === 1) {
+            tick();
+        }
     };
 
     const tick = () => {
-        setTimeout(() => {
-            if (level > 0) {
-                $dinars += 10 * level * $growthRate;
-            }
+        tickTimeout = setTimeout(() => {
+            $dinars += 10 * level * $growthRate;
+
+            chakramContext.onClick();
+
             tick();
         }, 10000 / level);
     };
 
     onMount(() => {
-        tick();
+        if (level === 1) {
+            tick();
+        }
+
+        return () => {
+            if (tickTimeout) clearTimeout(tickTimeout);
+        };
     });
 </script>
 

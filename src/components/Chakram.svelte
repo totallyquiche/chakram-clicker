@@ -3,11 +3,14 @@
     import type { DinarContextStore } from '../contexts/DinarContext.svelte';
     import type { GrowthRateContextStore } from '../contexts/GrowthRateContext.svelte';
     import type { LevelContextStore } from '../contexts/LevelContext.svelte';
+    import type { ChakramContext } from '../contexts/ChakramContext.svelte';
     import Dinar from './Dinar.svelte';
 
     const dinars: DinarContextStore = getContext('DinarStore');
     const growthRate: GrowthRateContextStore = getContext('GrowthRateStore');
     const level: LevelContextStore = getContext('LevelStore');
+
+    let chakramContext: ChakramContext = getContext('ChakramContext');
 
     let coinCount = 0;
 
@@ -54,7 +57,7 @@
         }
     };
 
-    export const handleClick = (): void => {
+    chakramContext.onClick = (): void => {
         playAudio();
 
         const points = Math.floor(($growthRate * $level) / 2) + 1;
@@ -80,7 +83,7 @@
     {/each}
     <button
         class="spin h-72 w-72 rounded-full transition-all hover:scale-110 hover:cursor-grab active:scale-95"
-        onclick={handleClick}
+        onclick={chakramContext.onClick}
     >
         <img
             src="/chakram.png"
